@@ -9,9 +9,8 @@ export async function onRequestGet(context) {
   }
 
   try {
-    const resposta = await fetch("https://api.allorigins.win/raw?url=https://webhook.site/6587d8ee-896b-4597-aef4-e87aaf3a95d2");
-
-    const conteudo = await resposta.text();
+    const resposta = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent("https://webhook.site/6587d8ee-896b-4597-aef4-e87aaf3a95d2")}`);
+const dados = await resposta.json();
 
     return new Response(conteudo, {
       headers: {
